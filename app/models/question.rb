@@ -1,6 +1,7 @@
 class Question < ActiveRecord::Base
   belongs_to :group
   has_many :choices, :dependent => :destroy
+  has_many :positions, :dependent => :destroy
   attr_accessible :hint, :sec, :title, :video_url
   validates :group, :title, :video_url, :sec, :hint, :presence => true
   validates :video_url,

@@ -8,6 +8,8 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'slim-rails'
+gem 'rails3-restful-authentication', "~> 3.0.1"
+
 
 group :development do
   gem 'faker'

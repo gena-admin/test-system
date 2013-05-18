@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 
 
 gem 'pg'
-gem 'slim'
+gem 'slim-rails'
 
 group :development do
   gem 'faker'
@@ -22,7 +22,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem "less-rails"
+  gem 'less-rails'
   gem 'twitter-bootstrap-rails'
   gem 'font-awesome-rails'
   #gem 'sass-rails',   '~> 3.2.3'

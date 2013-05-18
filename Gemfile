@@ -7,7 +7,10 @@ gem 'rails', '3.2.13'
 
 
 gem 'pg'
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
+gem 'slim'
+gem 'less'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'faker'

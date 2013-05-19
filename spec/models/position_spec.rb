@@ -14,9 +14,12 @@ describe Position do
     end
 
     context 'alignment' do
-      it { FactoryGirl.build(:position, :alignment => nil).should have(1).error_on(:alignment) }
-      it { FactoryGirl.build(:position, :alignment => '').should have(1).error_on(:alignment) }
       it { FactoryGirl.build(:position, :alignment => 'middle').should have(1).error_on(:alignment) }
+      it { FactoryGirl.build(:position, :alignment => nil).should be_valid }
+      it { FactoryGirl.build(:position, :alignment => '').should be_valid }
+      it { FactoryGirl.build(:position, :alignment => 'left').should be_valid }
+      it { FactoryGirl.build(:position, :alignment => 'center').should be_valid }
+      it { FactoryGirl.build(:position, :alignment => 'right').should be_valid }
     end
 
     context 'color' do

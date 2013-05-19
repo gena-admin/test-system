@@ -9,6 +9,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'slim-rails'
 gem 'devise'
+gem 'roo'
 
 group :development do
   gem 'faker'

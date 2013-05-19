@@ -1,9 +1,0 @@
-h1 Groups
-= link_to 'Add', new_group_path, :class => 'btn btn-primary'
-ul
-  - @groups.each do |group|
-    li
-      h5= group.name
-      .btn-group
-        = link_to 'Edit', edit_group_path(group), :class => 'btn'
-        = link_to 'Delete', group_path(group), :method => 'delete', :class => 'btn btn-warning'

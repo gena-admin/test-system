@@ -8,11 +8,6 @@ describe Question do
   end
 
   context 'validation' do
-    context 'group' do
-      it { FactoryGirl.build(:question, :group => nil).should have(1).error_on(:group) }
-      it { FactoryGirl.build(:question, :group_id => 0).should have(1).error_on(:group) }
-    end
-
     context 'title' do
       it { FactoryGirl.build(:question, :title => nil).should have(1).error_on(:title) }
       it { FactoryGirl.build(:question, :title => '').should have(1).error_on(:title) }

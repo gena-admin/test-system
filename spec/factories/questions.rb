@@ -8,6 +8,5 @@ FactoryGirl.define do
     end
     sec 3
     hint Faker::Lorem.word
-    group
   end
 end

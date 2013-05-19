@@ -1,16 +1,26 @@
-doctype
+doctype html
 html
   head
-  title TestSystem
-  = stylesheet_link_tag    "application", :media => "all"
-  = javascript_include_tag "application"
-  = csrf_meta_tags
-body
-  = link_to root_path do
-   .brand TestSystem
-  - if user_signed_in?
-    | Hello, #{current_user.email}!
-    '
-    = link_to 'Log Out', destroy_user_session_path, :method => 'delete'
-  = bootstrap_flash
-  = yield
+    title TestSystem
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    - if user_signed_in?
+      .navbar
+        .navbar-inner
+          .container
+            = link_to 'TestSystem', root_path, :class => 'brand'
+            p.navbar-text.pull-right
+              | Logged in as #{current_user.email} |
+              '
+              = link_to 'Log Out', destroy_user_session_path, :method => 'delete'
+            ul.nav
+              li= link_to 'Home', root_path
+              li
+                a href="#about" About
+              li
+                a href="#contact" Contact
+    .container
+      = bootstrap_flash
+      = yield

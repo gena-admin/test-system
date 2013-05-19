@@ -9,4 +9,8 @@ class Question < ActiveRecord::Base
   validates :sec,
             :numericality => { :greater_than => 0 },
             :allow_blank => true
+
+  def to_s
+    title
+  end
 end

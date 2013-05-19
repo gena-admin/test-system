@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def authorize_admin!
+    render_access_denied unless current_user.admin?
+  end
 
+  def render_access_denied
+    render :file => "#{Rails.root}/public/401", :layout => false, :status => 401
   end
 end

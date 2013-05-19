@@ -6,6 +6,12 @@ html
   = javascript_include_tag "application"
   = csrf_meta_tags
 body
+  = link_to root_path do
+   .brand TestSystem
   - if user_signed_in?
+    =' link_to 'Groups', groups_path if current_user.admin?
+    | Hello, #{current_user.email}!
+    '
     = link_to 'Log Out', destroy_user_session_path, :method => 'delete'
+  = bootstrap_flash
   = yield

@@ -1,0 +1,9 @@
+h1= @group.name
+= link_to 'Add'#, new_question_path, :class => 'btn btn-primary'
+ul
+  - group.questions.each do |questoin|
+    li.row
+      .span9
+        = link_to question#, question_path question
+      .span3.btn-group
+        = link_to 'Delete'#, question_path question, :class => 'btn btn-warning'

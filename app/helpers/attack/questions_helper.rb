@@ -1,0 +1,2 @@
+module Attack::QuestionsHelper
+end

@@ -6,11 +6,25 @@ html
   = javascript_include_tag "application"
   = csrf_meta_tags
 body
-  = link_to root_path do
-   .brand TestSystem
   - if user_signed_in?
-    | Hello, #{current_user.email}!
-    '
-    = link_to 'Log Out', destroy_user_session_path, :method => 'delete'
-  = bootstrap_flash
+    .navbar.navbar-inverse
+      .navbar-inner
+        .container-fluid
+          = link_to root_path do
+             .brand TestSystem
+          .nav-collapse.collapse
+            p.navbar-text.pull-right
+              | Logged in as #{current_user.email} |
+              = link_to 'Log Out', destroy_user_session_path, :method => 'delete'
+              a.navbar-link href="#"
+            ul.nav
+              li.active
+                a href="#" Home
+              li
+                a href="#about" About
+              li
+                a href="#contact" Contact
+
+    = bootstrap_flash
+
   = yield

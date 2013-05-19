@@ -23,3 +23,51 @@ html
     .container
       = bootstrap_flash
       = yield
+
+      #player
+        |
+      javascript:
+
+         var tag = document.createElement('script');
+          tag.src = "https://www.youtube.com/iframe_api";
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+          var done = false;
+          var player;
+          function onYouTubeIframeAPIReady() {
+              player = new YT.Player('player', {
+                  height: '390',
+                  width: '640',
+                  playerVars: {
+                    controls: '0',
+                    showinfo: '0',
+                    disablekb: '1'
+                  },
+                  videoId: 'cyaf4p9IvpE',
+                  events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                  }
+              });
+          }
+          function onPlayerReady(evt) {
+              evt.target.playVideo();
+          }
+          function onPlayerStateChange(evt) {
+              if (evt.data == YT.PlayerState.PLAYING && !done) {
+                  setTimeout(stopVideo, 5000);
+                  done = true;
+              }
+
+
+              if (evt.data == YT.PlayerState.PAUSED) {
+                  setTimeout(startVideo, 50);
+              }
+          }
+          function stopVideo() {
+              player.stopVideo();
+          }
+          function startVideo() {
+              player.playVideo();
+          }
+          setInterval(function(){startVideo()},15000);

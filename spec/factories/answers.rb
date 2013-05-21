@@ -6,7 +6,7 @@ FactoryGirl.define do
   end
 
   factory :answer_with_choice, :parent => :answer do
-    question
     choice
+    question { choice.question }
   end
 end

@@ -8,6 +8,10 @@ describe Importer::Attack do
       @question = Importer::Attack.new(File.join File.dirname(__FILE__), 'attack_uk.xlsx').import!
     end
 
+    after :all do
+      @question.destroy
+    end
+
     it { @question.should be_valid }
 
     context 'video' do
@@ -118,6 +122,10 @@ describe Importer::Attack do
   context 'attack_en.xlsx' do
     before :all do
       @question = Importer::Attack.new(File.join File.dirname(__FILE__), 'attack_en.xlsx').import!
+    end
+
+    after :all do
+      @question.destroy
     end
 
     it { @question.should be_valid }

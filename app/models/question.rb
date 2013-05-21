@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
-  has_many :choices, :dependent => :destroy
-  has_many :positions, :dependent => :destroy
+  has_many :choices, :dependent => :destroy, :order => :id
+  has_many :positions, :dependent => :destroy, :order => :id
   has_many :answers, :dependent => :restrict
   attr_accessible :hint, :sec, :title, :video_url
   validates :title, :video_url, :sec, :hint, :presence => true

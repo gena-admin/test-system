@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  ADMINS = ['surzhkoyevhen@gmail.com', 'gena.admin@gmail.com']
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -10,6 +11,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   def admin?
-    true
+    ADMINS.include? email
   end
 end

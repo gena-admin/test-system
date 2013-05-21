@@ -1,0 +1,2 @@
+module Attack::AnswersHelper
+end

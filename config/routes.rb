@@ -3,6 +3,10 @@ TestSystem::Application.routes.draw do
   root :to => 'home#index'
 
   namespace :attack do
+    resources :quizzes, :only => [] do
+      resources :answers, :only => %w(edit update)
+    end
+    get '/quizzes/start' => 'quizzes#create', :as => 'start_quiz'
     resources :questions, :only => %w(index create show destroy)
   end
 

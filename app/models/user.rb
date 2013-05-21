@@ -10,7 +10,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  def to_s
+    email #TODO: first name should be displayed if profile filled
+  end
+
   def admin?
-    ADMINS.include? email
+    ADMINS.include?(email) #TODO: Also user can be admin if flag is set
   end
 end

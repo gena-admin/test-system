@@ -12,7 +12,7 @@ html
           .container
             = link_to 'TestSystem', root_path, :class => 'brand'
             p.navbar-text.pull-right
-              | Logged in as #{current_user.email} |
+              | Logged in as #{current_user} |
               '
               = link_to 'Log Out', destroy_user_session_path, :method => 'delete'
             ul.nav

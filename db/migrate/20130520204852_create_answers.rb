@@ -4,6 +4,8 @@ class CreateAnswers < ActiveRecord::Migration
       t.belongs_to :question
       t.belongs_to :choice
       t.belongs_to :quiz
+      t.datetime :started_at
+      t.datetime :answered_at
 
       t.timestamps
     end

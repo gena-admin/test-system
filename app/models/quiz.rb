@@ -10,8 +10,9 @@ class Quiz < ActiveRecord::Base
 
   def next_answer!
     question_ids = answers.map(&:question_id)
-    result = self.answers.create
+    result = self.answers.build
     result.question = random_question question_ids
+    result.save!
     result
   end
 

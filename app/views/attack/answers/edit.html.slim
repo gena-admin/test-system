@@ -1,2 +1,13 @@
-h1 Attack::Answers#edit
-p Find me in app/views/attack/answers/edit.html.slim
+.media
+  .pull-left YouTube video player will be here
+  .media-body
+    h4.media-heading= @answer.question
+    = form_for [:attack, @quiz, @answer], :remote => true do |f|
+      blockquote
+        - @answer.question.choices.each do |choice|
+          label.radio
+            = choice
+            = f.radio_button :choice_id, choice.id, :class => 'radio'
+      .form-actions
+        =' f.submit 'Answer', :class => 'btn btn-primary'
+        = link_to 'Next Question', new_attack_quiz_answer_path(@quiz)

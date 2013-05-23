@@ -2,6 +2,7 @@ require 'importer/attack'
 
 class Attack::QuestionsController < Attack::ApplicationController
   before_filter :authorize_admin!
+  before_filter :find_question, :only => [:show, :destroy]
 
   def index
     @questions = Question.all
@@ -20,8 +21,22 @@ class Attack::QuestionsController < Attack::ApplicationController
   end
 
   def show
+
   end
 
   def destroy
+      @question.destroy
+      flash[:success] = "Question destroyed."
+      redirect_to attack_questions_path
+  end
+
+  protected
+
+  def find_question
+    @question = Question.find_by_id(params[:id])
+    if @question.nil?
+      flash[:error] = "Question not found!"
+      redirect_to attack_questions_path
+    end
   end
 end

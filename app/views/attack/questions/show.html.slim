@@ -1,2 +1,22 @@
-h1 Questions#show
-p Find me in app/views/questions/show.html.slim
+h1
+  | Attack Question
+  '
+  = link_to 'Delete Question', attack_question_path(@question), :method => 'delete', :class => 'btn btn-small btn-danger'
+.row
+  .span8
+    center
+      iframe allowfullscreen="" frameborder="0" height="315" src="http://www.youtube.com/embed/#{@question.youtube_code}" width="560"
+    table.table.table-bordered.game-table
+      - question_to_matrix(@question).each do |row|
+        tr
+          - row.each_with_index do |position, j|
+            td class="#{'volley-net' if j == 6}" style=position_style(position)
+              - if position
+                i.icon-user
+  .span4
+    h4= @question.title
+    table.table
+      - @question.choices.each do |choice|
+        tr class=choice_class(choice)
+          td= choice.title
+    span.label.label-warning #{@question.hint}

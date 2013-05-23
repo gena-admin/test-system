@@ -14,4 +14,8 @@ class Question < ActiveRecord::Base
   def to_s
     title
   end
+
+  def youtube_code
+      video_url[/v=([^&]+)/, 1]
+  end
 end

@@ -10,6 +10,11 @@ TestSystem::Application.routes.draw do
     resources :questions, :only => %w(index create show destroy)
   end
 
+  namespace :admin do
+    resources :users, :only => %w(index edit update destroy)
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

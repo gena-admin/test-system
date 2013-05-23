@@ -13,13 +13,17 @@ html
           .container
             = link_to 'TestSystem', root_path, :class => 'brand'
             p.navbar-text.pull-right
-              | Logged in as #{current_user} |
+              | Logged in as
+              '
+              =' link_to "#{current_user}", edit_user_registration_path
+              | |
               '
               = link_to 'Log Out', destroy_user_session_path, :method => 'delete'
             ul.nav
               li= link_to 'Home', root_path
               - if current_user.admin?
                 li= link_to 'Attack', attack_questions_path
+                li= link_to 'Users', admin_users_path
 
     .container
       = bootstrap_flash

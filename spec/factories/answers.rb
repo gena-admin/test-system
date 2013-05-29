@@ -9,4 +9,12 @@ FactoryGirl.define do
     choice
     question { choice.question }
   end
+
+  factory :answer_with_correct_choice, :parent => :answer_with_choice do
+    association :choice, :factory => :choice, :is_correct => true
+  end
+
+  factory :answer_with_incorrect_choice, :parent => :answer_with_choice do
+    association :choice, :factory => :choice, :is_correct => false
+  end
 end

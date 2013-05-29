@@ -1,0 +1,26 @@
+@keyframes timer
+{
+  from { width:  0% }
+  to { width: 100% }
+}
+
+@-webkit-keyframes timer
+{
+  from { width:  0% }
+  to { width: 100% }
+}
+
+.timer {
+  animation-name: timer;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-play-state: running;
+  -webkit-animation-name: timer;
+  -webkit-animation-duration: 7s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-play-state: running;
+}

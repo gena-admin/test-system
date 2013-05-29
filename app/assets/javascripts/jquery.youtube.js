@@ -1,6 +1,8 @@
+var onYouTubeIframeAPIReady = null;
+
 function YouTube(player, options) {
-    var PLAYER_WIDTH = 640;
-    var PLAYER_HEIGHT = 390;
+    var PLAYER_WIDTH = 480;
+    var PLAYER_HEIGHT = 272;
 
     this.defaultOptions = {
         stopAfter: 3,
@@ -15,27 +17,38 @@ function YouTube(player, options) {
         this.$player = player;
         this.protectVideo();
         $.extend(this.options, this.defaultOptions, options);
-        this.player = new YT.Player(player[0], {
-            width: PLAYER_WIDTH,
-            height: PLAYER_HEIGHT,
-            playerVars: {
-                controls: 0,
-                showinfo: 0,
-                disablekb: 1,
-                autoplay: 1,
-                rel: 0
-            },
-            videoId: this.$player.data('code'),
-            events: {
-                onStateChange: this.onPlayerStateChange.bind(this)
-            }
-        });
+        var self = this;
+        onYouTubeIframeAPIReady = function() {
+            self.player = new YT.Player(player[0], {
+                width: PLAYER_WIDTH,
+                height: PLAYER_HEIGHT,
+                playerVars: {
+                    controls: 0,
+                    showinfo: 0,
+                    disablekb: 1,
+                    autoplay: 1,
+                    rel: 0
+                },
+                videoId: self.$player.data('code'),
+                events: {
+                    onStateChange: self.onPlayerStateChange.bind(self)
+                }
+            });
+        };
+        this.addYouTubeApi();
+    };
+
+    this.addYouTubeApi = function() {
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     };
 
     this.protectVideo = function() {
         $('<div>')
             .css({
-                position: 'absolute'
+                position: 'relative'
             })
             .insertAfter(this.$player)
             .append(this.$player)
@@ -43,7 +56,7 @@ function YouTube(player, options) {
                 $('<div>')
                     .css({
                         position: 'absolute',
-                        width: PLAYER_WIDTH,
+                        width: '100%',
                         height: PLAYER_HEIGHT,
                         top: 0,
                         left: 0

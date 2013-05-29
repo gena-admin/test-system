@@ -1,0 +1,13 @@
+h1 Quiz statistic
+
+.row
+  .span6
+    dl.dl-horizontal
+      dt Spent Time
+      dd= @quiz.spent_time || non_breaking_space
+      dt Correct Answers
+      dd= @quiz.correct_answers.count
+      dt Correct Answers Part
+      dd #{@quiz.correct_answers_part}%
+      dt AVG Time
+      dd= @quiz.avg_answer_time

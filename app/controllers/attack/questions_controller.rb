@@ -11,7 +11,7 @@ class Attack::QuestionsController < Attack::ApplicationController
   def create
     #puts params[:file].methods.join("\n")
     question = Importer::Attack.new(params[:file].path).import!
-    redirect_to attack_question_path question, :flash => { :notice => 'Question is successfully parsed' }
+    redirect_to attack_question_path question, :alert => 'Question is successfully parsed'
   rescue Exception => e
     Rails.logger.error e.message
     Rails.logger.error '=' * 200

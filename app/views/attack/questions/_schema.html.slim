@@ -1,0 +1,7 @@
+table.table.table-bordered.game-table
+  - question_to_matrix(question).each do |row|
+    tr
+      - row.each_with_index do |position, j|
+        td class="#{'volley-net' if j == 6}" style=position_style(position)
+          - if position
+            i.icon-user

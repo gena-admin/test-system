@@ -1,18 +1,2 @@
 .row
-  .span12= link_to 'Start Attack test', attack_start_quiz_path, :class => 'btn btn-large btn-primary'
-
-/TODO: This is example of youtube video player, remove this after
-.player data-code='cyaf4p9IvpE'
-javascript:
-  function onYouTubeIframeAPIReady() {
-    $('.player').youtube({
-      stopAfter: #{3},
-      waitFor: #{7.3},
-      onStop: function() {
-        console.log('Stopped');
-      },
-      onContinue: function() {
-        console.log('Continue');
-      }
-    });
-  }
+  .span12= link_to 'Start Attack test', start_attack_quizzes_path, :class => 'btn btn-large btn-primary'

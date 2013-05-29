@@ -46,4 +46,37 @@ describe Quiz do
       it { questions.should include answer.question }
     end
   end
+
+  context '#correct_answers' do
+    let(:quiz) { FactoryGirl.create(:quiz) }
+
+    before :each do
+      2.times {
+        FactoryGirl.create(:answer_with_incorrect_choice, :quiz => quiz)
+      }
+      2.times {
+        FactoryGirl.create(:answer)
+      }
+      FactoryGirl.create(:answer_with_correct_choice, :quiz => quiz)
+    end
+
+    it { Answer.should have(5).records }
+    it { quiz.answers.should have(3).record }
+    it { quiz.correct_answers.should have(1).record }
+    it { quiz.correct_answers.count.should == 1}
+  end
+
+  context '#ang_anser_time' do
+    #TODO: All calculation based on question factory set video sec to 3 and time for page load is 1
+    let(:now) { Time.now }
+    let(:quiz) { FactoryGirl.create(:quiz) }
+
+    before :each do
+      FactoryGirl.create(:answer_with_correct_choice, :quiz => quiz, :started_at => now, :answered_at => now + 7)
+      FactoryGirl.create(:answer_with_correct_choice, :quiz => quiz, :started_at => now, :answered_at => now + 8)
+      FactoryGirl.create(:answer_with_correct_choice, :quiz => quiz, :started_at => now, :answered_at => now + 9)
+    end
+
+    it { quiz.avg_answer_time.should == 2 }
+  end
 end

@@ -1,13 +1,37 @@
-.media
-  .pull-left YouTube video player will be here
-  .media-body
-    h4.media-heading= @answer.question
+.row
+  .span6
+    center
+      = progress_bar @quiz
+      .player data-code=@answer.question.youtube_code
+      == render :partial => 'attack/questions/schema', :locals => { :question => @answer.question }
+  .span6
+    h4 = @answer.question
     = form_for [:attack, @quiz, @answer], :remote => true do |f|
       blockquote
         - @answer.question.choices.each do |choice|
           label.radio
             = choice
             = f.radio_button :choice_id, choice.id, :class => 'radio'
+      span.label.label-warning = @answer.question.hint
       .form-actions
+        .progress.progress-warning
+          .bar
         =' f.submit 'Answer', :class => 'btn btn-primary'
-        = link_to 'Next Question', new_attack_quiz_answer_path(@quiz)
+        - if @quiz.full?
+          = link_to 'Finish quiz', finish_attack_quiz_path(@quiz)
+        - else
+          = link_to 'Next Question', new_attack_quiz_answer_path(@quiz)
+javascript:
+  $(function() {
+    $('.player').youtube({
+      stopAfter: #{@answer.question.sec},
+      waitFor: #{Answer::TIME_FOR_ANSWER},
+      onStop: function() {
+        $('.bar').addClass('timer');
+      },
+      onContinue: function() {
+        if ($('input[type=radio]:checked').val())
+          $('form').submit();
+      }
+    });
+  });

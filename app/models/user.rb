@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   ADMINS = ['surzhkoyevhen@gmail.com', 'gena.admin@gmail.com']
+  LOCALES = ["en","ru","uk"]
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -9,12 +10,16 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+  attr_accessible :full_name, :birthday, :locale
+
+  validates :is_admin, :inclusion => [true, false]
+  validates :locale, :inclusion => LOCALES, :allow_blank => true
 
   def to_s
-    email #TODO: first name should be displayed if profile filled
+    full_name.blank? ? email : full_name
   end
 
   def admin?
-    ADMINS.include?(email) #TODO: Also user can be admin if flag is set
+    ADMINS.include?(email) || is_admin
   end
 end

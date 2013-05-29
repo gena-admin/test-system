@@ -1,0 +1,23 @@
+h1 Users
+.span8
+  table.table.table-striped
+    thead
+      tr
+        th full name
+        th email
+        th birthday
+        th locale
+        th is_admin
+        th
+    tbody
+      - @users.each do |user|
+        tr
+          td= user.full_name
+          td= user.email
+          td= user.birthday
+          td= user.locale
+          td= user.is_admin
+          td
+            .btn-group
+              = link_to 'Edit', edit_admin_user_path(user), :class => 'btn btn-primary'
+              = link_to 'Delete', admin_user_path(user), :method => 'delete', :class => 'btn btn-medium btn-danger'

@@ -8,9 +8,12 @@ h1
       iframe allowfullscreen="" frameborder="0" width="480" height="272" src="http://www.youtube.com/embed/#{@question.youtube_code}"
       == render :partial => 'schema', :locals => { :question => @question }
   .span6
-    h4= @question.title
-    table.table
-      - @question.choices.each do |choice|
-        tr class=choice_class(choice)
-          td= choice.title
-    span.label.label-warning = @question.hint
+    - User::LOCALES.each_with_index do |locale, index|
+      - unless index == 0
+        hr
+      h4= @question.title(locale)
+      table.table
+        - @question.choices.each do |choice|
+          tr class=choice_class(choice)
+            td= choice.title(locale)
+      span.label.label-warning = @question.hint(locale)

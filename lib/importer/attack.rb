@@ -27,21 +27,27 @@ module Importer
     end
 
     def import_question!
-      @question.title = @spreadsheet.row(2)[0]
+      @question.title_uk = @spreadsheet.row(2)[0]
+      @question.title_ru = @spreadsheet.row(2)[1]
+      @question.title_en = @spreadsheet.row(2)[2]
     end
 
     def import_choices!
       (3..5).each { |i|
         choice = @question.choices.build
         value = @spreadsheet.cell(i, 1)
-        choice.title = value.split('.')[1].strip
+        choice.title_uk = value.split('.')[1].strip
+        choice.title_ru = @spreadsheet.cell(i, 2).split('.')[1].strip
+        choice.title_en = @spreadsheet.cell(i, 3).split('.')[1].strip
         choice.is_correct = value.include? '+'
         choice.save!
       }
     end
 
     def import_hint!
-      @question.hint = @spreadsheet.row(6)[0]
+      @question.hint_uk = @spreadsheet.row(6)[0]
+      @question.hint_ru = @spreadsheet.row(6)[1]
+      @question.hint_en = @spreadsheet.row(6)[2]
     end
 
     def import_schema!

@@ -2,8 +2,8 @@ class Question < ActiveRecord::Base
   has_many :choices, :dependent => :destroy, :order => :id
   has_many :positions, :dependent => :destroy, :order => :id
   has_many :answers, :dependent => :restrict
-  attr_accessible :hint, :sec, :title, :video_url
-  validates :title, :video_url, :sec, :hint, :presence => true
+  attr_accessible :hint_uk, :hint_ru, :hint_en, :sec, :title_uk, :title_ru, :title_en, :video_url
+  validates :title_uk, :title_ru, :title_en, :video_url, :sec, :hint_uk, :hint_ru, :hint_en, :presence => true
   validates :video_url,
             :format => /https?:\/\/www\.youtube\.com\/watch\?v=[a-zA-Z\d\-_]*/,
             :allow_blank => true
@@ -13,6 +13,14 @@ class Question < ActiveRecord::Base
 
   def to_s
     title
+  end
+
+  def title locale = I18n.locale
+    self.try(:"title_#{locale}")
+  end
+
+  def hint locale = I18n.locale
+    self.try(:"hint_#{locale}")
   end
 
   def youtube_code

@@ -1,0 +1,19 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ru:
+  layout:
+    home: "Главная"
+    attack: "Атака"
+    users: "Пользователи"
+    logged_in_as: "Вы вошли как"
+    log_out: "Выйти"
+  common:
+    save: "Сохранить"
+    delete: "Удалить"
+    view: "Просмотр"
+    edit: "Редактировать"
+    update: "Обновить"
+    email: "Електронная почта"
+    password: "Пароль"
+    password_confirm: "Подтверждения пароля"

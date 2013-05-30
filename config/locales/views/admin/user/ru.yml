@@ -1,0 +1,14 @@
+ru:
+  admin:
+    user:
+      index:
+        users: "Пользователи"
+        full_name: "Ф.И.О"
+        email:  "Електронная почта"
+        birthday: "Дата рождения"
+        locale:   "Локаль"
+        is_admin: "Админ?"
+      edit:
+        edit_user_profile: "Редактировать профиль пользователя"
+        select_locale: "Выберите язык"
+

@@ -3,8 +3,13 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   before_filter :close_answer!
   before_filter :close_quiz!
+  before_filter :set_locale
 
   protected
+
+  def set_locale
+    I18n.locale = current_user.locale if current_user
+  end
 
   def authorize_admin!
     render_access_denied unless current_user.admin?

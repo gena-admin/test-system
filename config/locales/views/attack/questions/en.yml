@@ -1,0 +1,10 @@
+en:
+  attack:
+    questions:
+      index:
+        xlsx_file: "XLSX File"
+        question: "Question"
+        questions: "Questions"
+      show:
+        delete_question: "Delete Question"
+        attack_question: "Attack Question"

@@ -1,0 +1,8 @@
+uk:
+  attack:
+    answers:
+      edit:
+        answer: "Відповідь"
+        finish_quiz: "Закінчити тест"
+        next_question: "Наступне питання"
+

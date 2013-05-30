@@ -1,0 +1,8 @@
+en:
+  attack:
+    answers:
+      edit:
+        answer: "Answer"
+        finish_quiz: "Finish quiz"
+        next_question: "Next Question"
+

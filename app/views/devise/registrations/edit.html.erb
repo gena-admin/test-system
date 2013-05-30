@@ -3,24 +3,24 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put,:class => 'form-signin' }) do |f| %>
   <%= devise_error_messages! %>
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  <%= f.text_field :full_name, :autofocus => true,:class =>'input-block-level', :placeholder=>"Full Name"  %>
+  <h2> <%= t('common.edit') %>  <%= resource_name.to_s.humanize %></h2>
+  <%= f.text_field :full_name, :autofocus => true,:class =>'input-block-level', :placeholder=>t('devise.registrations.edit.full_name')  %>
 
-  <%= f.text_field :birthday, :title => "Формат: dd/mm/YYYY", :placeholder=>"Birthday"  %>
+  <%= f.text_field :birthday, :title => "Формат: dd/mm/YYYY", :placeholder=>t('devise.registrations.edit.birthday')  %>
 
-  <%= f.email_field :email, :autofocus => true,:class =>'input-block-level', :placeholder=>"Email address"  %>
+  <%= f.email_field :email, :autofocus => true,:class =>'input-block-level', :placeholder=>t('devise.registrations.edit.email')  %>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-  <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :class =>'input-block-level', :placeholder=>"Password" %>
-  <%= f.password_field :password_confirmation, :class =>'input-block-level', :placeholder=>"Password confirmation" %>
-  <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password, :class =>'input-block-level', :placeholder=>"Password confirmation" %>
+  <i><%= t('devise.registrations.edit.leave_blank') %></i><br />
+  <%= f.password_field :password, :class =>'input-block-level', :placeholder=>t('common.password') %>
+  <%= f.password_field :password_confirmation, :class =>'input-block-level', :placeholder=>t('common.password_confirm') %>
+  <i><%= t('devise.registrations.edit.get_password') %></i><br />
+  <%= f.password_field :current_password, :class =>'input-block-level', :placeholder=>t('common.password_confirm') %>
 
-  <%= f.select :locale, User::LOCALES, :prompt => 'Select locale'  %>   <br>
+  <%= f.select :locale, User::LOCALES, :prompt => t('devise.registrations.edit.email')  %>   <br>
 
 
-      <%= f.submit "Update",:class=>"btn btn-large btn-primary" %>
+      <%= f.submit t('common.update'),:class=>"btn btn-large btn-primary" %>
 <% end %>
  </div>

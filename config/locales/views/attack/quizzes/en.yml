@@ -1,0 +1,9 @@
+en:
+  attack:
+    quizzes:
+      show:
+        quiz_static: "Quiz statistic"
+        spent_time: "Spent Time"
+        correct_answer: "Correct Answers"
+        correct_answers_part: "Correct Answers Part"
+        avg_time: "AVG Time"

@@ -1,13 +1,13 @@
 .container
   = form_for([:admin, @user], :html => { :class => 'form-signin' }) do |f|
-    h2 Edit #{@user.to_s.humanize}
-    = f.text_field :full_name, :autofocus => true,:class =>'input-block-level', :placeholder=>"Full Name"
-    = f.email_field :email, :autofocus => true,:class =>'input-block-level', :placeholder=>"Email address"
-    = f.text_field :birthday, :title => "Формат: dd/mm/YYYY", :placeholder=>"Birthday"
-    = f.select :locale, User::LOCALES, :prompt => 'Select locale'
+    h2 =t('admin.user.edit.edit_user_profile')
+    = f.text_field :full_name, :autofocus => true,:class =>'input-block-level', :placeholder=>t('admin.user.index.full_name')
+    = f.email_field :email, :autofocus => true,:class =>'input-block-level', :placeholder=>t('admin.user.index.email')
+    = f.text_field :birthday, :title => "Формат: dd/mm/YYYY", :placeholder=>t('admin.user.index.birthday')
+    = f.select :locale, User::LOCALES, :prompt => t('admin.user.edit.select_locale')
     br
-    i is_admin
+    i =t('admin.user.index.is_admin')
     = f.check_box :is_admin, :name =>'is_admin'
     br
     br
-    = f.submit "Update",:class=>"btn btn-large btn-primary"
+    = f.submit t('common.update'),:class=>"btn btn-large btn-primary"

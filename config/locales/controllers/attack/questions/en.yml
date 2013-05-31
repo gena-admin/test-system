@@ -1,0 +1,10 @@
+en:
+  controllers:
+    questions:
+      before_filter:
+        not_found: Question not found!
+      create:
+        success: Question successfully imported
+        error: You have submitted file with incorrect format
+      destroy:
+        success: Question successfully destroyed

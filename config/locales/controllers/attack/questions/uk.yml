@@ -1,0 +1,10 @@
+uk:
+  controllers:
+    questions:
+      before_filter:
+        not_found: Питання не знайдено!
+      create:
+        success: Питання успішно імпортовано
+        error: Ви надіслали файл з неправильним форматом
+      destroy:
+        success: Питання успішно видалено

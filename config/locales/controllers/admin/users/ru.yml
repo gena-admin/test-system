@@ -1,0 +1,7 @@
+ru:
+  controllers:
+    users:
+      before_filter:
+        not_found: Пользоветель не найден!
+      destroy:
+        success: Пользователь успешко удален

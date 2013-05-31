@@ -11,12 +11,13 @@ class Attack::QuestionsController < Attack::ApplicationController
   def create
     #puts params[:file].methods.join("\n")
     question = Importer::Attack.new(params[:file].path).import!
-    redirect_to attack_question_path question, :alert => 'Question is successfully parsed'
+    flash[:success] = t('controllers.questions.create.success')
+    redirect_to attack_question_path question
   rescue Exception => e
     Rails.logger.error e.message
     Rails.logger.error '=' * 200
     Rails.logger.error e.backtrace.join "\n"
-    flash[:error] = 'You have submitted file with incorrect format'
+    flash[:success] = t('controllers.questions.create.error')
     redirect_to attack_questions_path
   end
 
@@ -26,7 +27,7 @@ class Attack::QuestionsController < Attack::ApplicationController
 
   def destroy
       @question.destroy
-      flash[:success] = "Question destroyed."
+      flash[:success] = t('controllers.questions.destroy.success')
       redirect_to attack_questions_path
   end
 
@@ -35,7 +36,7 @@ class Attack::QuestionsController < Attack::ApplicationController
   def find_question
     @question = Question.find_by_id(params[:id])
     if @question.nil?
-      flash[:error] = "Question not found!"
+      flash[:error] = t('controllers.questions.before_filter.not_found')
       redirect_to attack_questions_path
     end
   end

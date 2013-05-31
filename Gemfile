@@ -10,6 +10,7 @@ gem 'pg'
 gem 'slim-rails'
 gem 'devise'
 gem 'roo'
+gem 'rails-i18n'
 
 group :development do
   gem 'faker'

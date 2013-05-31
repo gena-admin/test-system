@@ -1,0 +1,7 @@
+uk:
+  controllers:
+    users:
+      before_filter:
+        not_found: Користувач не знайдений!
+      destroy:
+        success: Користувач успішно видалений

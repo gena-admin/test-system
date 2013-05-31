@@ -16,11 +16,11 @@
       .form-actions
         .progress.progress-warning
           .bar
-        =' f.submit 'Answer', :class => 'btn btn-primary'
+        =' f.submit t('.answer'), :class => 'btn btn-primary'
         - if @quiz.full?
-          = link_to 'Finish quiz', finish_attack_quiz_path(@quiz)
+          = link_to t('.finish_quiz'), finish_attack_quiz_path(@quiz)
         - else
-          = link_to 'Next Question', new_attack_quiz_answer_path(@quiz)
+          = link_to t('.next_question'), new_attack_quiz_answer_path(@quiz)
 javascript:
   $(function() {
     $('.player').youtube({

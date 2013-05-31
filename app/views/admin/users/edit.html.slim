@@ -1,12 +1,12 @@
 .container
   = form_for([:admin, @user], :html => { :class => 'form-signin' }) do |f|
-    h2 =t('admin.user.edit.edit_user_profile')
-    = f.text_field :full_name, :autofocus => true,:class =>'input-block-level', :placeholder=>t('admin.user.index.full_name')
-    = f.email_field :email, :autofocus => true,:class =>'input-block-level', :placeholder=>t('admin.user.index.email')
-    = f.text_field :birthday, :title => "Формат: dd/mm/YYYY", :placeholder=>t('admin.user.index.birthday')
-    = f.select :locale, User::LOCALES, :prompt => t('admin.user.edit.select_locale')
+    h2 =t('.edit_user_profile')
+    = f.text_field :full_name, :autofocus => true,:class =>'input-block-level', :placeholder=>t('admin.users.index.full_name')
+    = f.email_field :email, :autofocus => true,:class =>'input-block-level', :placeholder=>t('admin.users.index.email')
+    = f.text_field :birthday, :title => "Формат: dd/mm/YYYY", :placeholder=>t('admin.users.index.birthday')
+    = f.select :locale, User::LOCALES, :prompt => t('.select_locale')
     br
-    i =t('admin.user.index.is_admin')
+    i =t('admin.users.index.is_admin')
     = f.check_box :is_admin, :name =>'is_admin'
     br
     br

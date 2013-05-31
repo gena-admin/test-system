@@ -1,6 +1,6 @@
 en:
   admin:
-    user:
+    users:
       index:
         users: "users"
         full_name: "full name"

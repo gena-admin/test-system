@@ -1,13 +1,13 @@
-h1 =t('admin.user.index.users')
+h1 =t('.users')
 .span8
   table.table.table-striped
     thead
       tr
-        th =t('admin.user.index.full_name')
-        th =t('admin.user.index.email')
-        th =t('admin.user.index.birthday')
-        th =t('admin.user.index.locale')
-        th =t('admin.user.index.is_admin')
+        th =t('.full_name')
+        th =t('.email')
+        th =t('.birthday')
+        th =t('.locale')
+        th =t('admin.users.index.is_admin')
         th
     tbody
       - @users.each do |user|

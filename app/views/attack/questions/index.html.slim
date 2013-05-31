@@ -1,8 +1,8 @@
-h1 =t('attack.questions.index.questions')
+h1 =t('.questions')
 .row
   .span6= form_tag attack_questions_path, multipart: true, :class => 'form form-horizontal' do
     .control-group
-      label.control-label =t('attack.questions.index.xlsx_file')
+      label.control-label =t('.xlsx_file')
       .controls= file_field_tag :file, :accept => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     .form-actions
       = submit_tag t('common.save'), :class => 'btn btn-primary'
@@ -10,7 +10,7 @@ h1 =t('attack.questions.index.questions')
 table.table.table-striped
   thead
     tr
-      th =t('attack.questions.index.question')
+      th =t('.question')
       th
   tbody
     - @questions.each do |question|

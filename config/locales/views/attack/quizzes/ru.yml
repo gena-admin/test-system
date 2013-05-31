@@ -2,7 +2,7 @@ ru:
   attack:
     quizzes:
       show:
-        quiz_static: "Статистика теста"
+        quiz_stat: "Статистика теста"
         spent_time: "Потраченое время"
         correct_answer: "Верных ответов"
         correct_answers_part: "% верных ответов"

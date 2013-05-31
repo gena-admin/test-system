@@ -1,6 +1,6 @@
 uk:
   admin:
-    user:
+    users:
       index:
         users: "Користувачі"
         full_name: "П.І.П"

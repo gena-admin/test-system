@@ -1,6 +1,6 @@
 ru:
   admin:
-    user:
+    users:
       index:
         users: "Пользователи"
         full_name: "Ф.И.О"

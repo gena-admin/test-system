@@ -2,7 +2,7 @@ uk:
   attack:
     quizzes:
       show:
-        quiz_static: "Статистика теста"
+        quiz_stat: "Статистика теста"
         spent_time: "Витрачено часу"
         correct_answer: "Правильних відповідей"
         correct_answers_part: "% правильних відповідей"

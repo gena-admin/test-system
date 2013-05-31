@@ -1,0 +1,10 @@
+ru:
+  controllers:
+    questions:
+      before_filter:
+        not_found: Вопрос не найден!
+      create:
+        success: Вопрос успешно импортировано
+        error: Вы отправили файл с неправельным форматом
+      destroy:
+        success: Вопрос успешно удален

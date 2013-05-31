@@ -1,13 +1,13 @@
-h1 =t('attack.quizzes.show.quiz_static')
+h1 =t('.quiz_stat')
 
 .row
   .span6
     dl.dl-horizontal
-      dt =t('attack.quizzes.show.spent_time')
+      dt =t('.spent_time')
       dd= @quiz.spent_time || non_breaking_space
-      dt =t('attack.quizzes.show.correct_answer')
+      dt =t('.correct_answer')
       dd= @quiz.correct_answers.count
-      dt =t('attack.quizzes.show.correct_answers_part')
+      dt =t('.correct_answers_part')
       dd #{@quiz.correct_answers_part}%
-      dt =t('attack.quizzes.show.avg_time')
+      dt =t('.avg_time')
       dd= @quiz.avg_answer_time

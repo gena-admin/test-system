@@ -1,0 +1,14 @@
+en:
+  admin:
+    users:
+      index:
+        users: "users"
+        full_name: "full name"
+        email:  "email address"
+        birthday: "birthday"
+        locale:   "locale"
+        is_admin: "is_admin"
+      edit:
+        edit_user_profile: "Edit User Profile"
+        select_locale: "Select locale"
+

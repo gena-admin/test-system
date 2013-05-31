@@ -1,0 +1,10 @@
+uk:
+  attack:
+    questions:
+      index:
+        xlsx_file: "XLSX Файл"
+        question: "Питання"
+        questions: "Питання"
+      show:
+        delete_question: "Видалити питання"
+        attack_question: "Питання про атаку"

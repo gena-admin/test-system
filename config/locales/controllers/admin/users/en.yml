@@ -1,0 +1,7 @@
+en:
+  controllers:
+    users:
+      before_filter:
+        not_found: User not found!
+      destroy:
+        success: User successfully destroyed

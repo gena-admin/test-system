@@ -12,13 +12,13 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    flash[:success] = "User destroyed."
+    flash[:success] = t('controllers.users.destroy.success')
     redirect_to admin_users_path
   end
 
   def update
     @user = User.find(params[:id])
-    @user.attributes = params[:user]
+    @user.attributes = params[:users]
     @user.is_admin = params[:is_admin]
     if @user.save
       redirect_to admin_users_path
@@ -32,7 +32,7 @@ class Admin::UsersController < ApplicationController
   def find_user
     @user = User.find_by_id(params[:id])
     if @user.nil?
-      flash[:error] = "User not found!"
+      flash[:error] = t('controllers.users.before_filter.not_found')
       redirect_to admin_users_path
     end
   end

@@ -1,0 +1,14 @@
+uk:
+  admin:
+    users:
+      index:
+        users: "Користувачі"
+        full_name: "П.І.П"
+        email:  "Електронна пошта"
+        birthday: "Дата народження"
+        locale:   "Локаль"
+        is_admin: "Адмін?"
+      edit:
+        edit_user_profile: "Редагувати профіль користувача"
+        select_locale: "Виберіть мову"
+

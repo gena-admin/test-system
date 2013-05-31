@@ -1,0 +1,8 @@
+ru:
+  attack:
+    answers:
+      edit:
+        answer: "Ответ"
+        finish_quiz: "Завершить тест"
+        next_question: "Следующий вопрос"
+

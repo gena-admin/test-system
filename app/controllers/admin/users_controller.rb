@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_filter :authorize_admin!
-  before_filter :find_user, :only => [:edit, :destroy]
+  before_filter :find_user, :only => [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -17,8 +17,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.attributes = params[:users]
+    @user.attributes = params[:user]
     @user.is_admin = params[:is_admin]
     if @user.save
       redirect_to admin_users_path

@@ -1,0 +1,14 @@
+en:
+  admin:
+    quizzes:
+      index:
+        quiz_stats: "Quiz statistics"
+        spent_time: "Spent Time"
+        correct_answers: "Correct Answers"
+        correct_answers_part: "Correct Answers Part"
+        avg_time: "AVG Time"
+        begin_test_time: "Beggining of the test"
+        end_test_time: "Ending of the test"
+        more: "More..."
+      show:
+        quiz_stat_for: "Quiz statistick for %{user}"

@@ -1,0 +1,14 @@
+uk:
+  admin:
+    quizzes:
+      index:
+        quiz_stats: "Статистика тестів"
+        spent_time: "Витрачено часу"
+        correct_answers: "Правильних відповідей"
+        correct_answers_part: "% правильних відповідей"
+        avg_time: "Середній час"
+        begin_test_time: "Початок тесту"
+        end_test_time: "Закінчення тесту"
+        more: "Детальніше..."
+      show:
+        quiz_stat_for: "Статистика теста для %{user}"

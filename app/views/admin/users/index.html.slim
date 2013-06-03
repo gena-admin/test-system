@@ -1,13 +1,14 @@
-h1 =t('.users')
+h1= t('.users')
 .span8
   table.table.table-striped
     thead
       tr
-        th =t('.full_name')
-        th =t('.email')
-        th =t('.birthday')
-        th =t('.locale')
-        th =t('admin.users.index.is_admin')
+        th= t('.full_name')
+        th= t('.email')
+        th= t('.birthday')
+        th= t('.locale')
+        th= t('admin.users.index.is_admin')
+        th= t('.completed_test')
         th
     tbody
       - @users.each do |user|
@@ -17,6 +18,7 @@ h1 =t('.users')
           td= user.birthday
           td= user.locale
           td= user.is_admin
+          td= link_to user.quizzes.count, admin_user_quizzes_path(user)
           td
             .btn-group
               = link_to t('common.edit'), edit_admin_user_path(user), :class => 'btn btn-primary'

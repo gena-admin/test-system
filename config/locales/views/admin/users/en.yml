@@ -8,6 +8,7 @@ en:
         birthday: "birthday"
         locale:   "locale"
         is_admin: "is_admin"
+        completed_test: "Completed test"
       edit:
         edit_user_profile: "Edit User Profile"
         select_locale: "Select locale"

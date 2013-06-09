@@ -3,10 +3,10 @@ class Attack::AnswersController < ApplicationController
   skip_before_filter :close_quiz!
 
   before_filter :find_quiz
+  before_filter :close_quiz_if_full!, :only => 'new'
   before_filter :find_answer, :only => %w(edit update)
 
   def new
-    redirect_to finish_attack_quiz_path(@quiz) if @quiz.full?
     @answer = @quiz.next_answer!
     session[:answer_id] = @answer.id
     redirect_to edit_attack_quiz_answer_path @quiz, @answer
@@ -31,12 +31,16 @@ class Attack::AnswersController < ApplicationController
     @quiz = Quiz.find params[:quiz_id]
     if @quiz.nil?
       redirect_to root_path
-    else
-      redirect_to attack_quiz_path(@quiz) if @quiz.closed?
+    elsif @quiz.closed?
+      redirect_to attack_quiz_path(@quiz)
     end
   end
 
   def find_answer
     @answer = @quiz.answers.find params[:id]
+  end
+
+  def close_quiz_if_full!
+    redirect_to finish_attack_quiz_path(@quiz) if @quiz.full?
   end
 end

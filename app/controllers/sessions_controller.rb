@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
-  skip_before_filter :close_answer!
-  skip_before_filter :close_quiz!
+  skip_before_filter :close_answer!, :except => 'destroy'
+  skip_before_filter :close_quiz!, :except => 'destroy'
   before_filter :clear_session
 
   private

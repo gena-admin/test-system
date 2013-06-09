@@ -8,6 +8,7 @@ uk:
         birthday: "Дата народження"
         locale:   "Локаль"
         is_admin: "Адмін?"
+        completed_test: "Пройдено тестів"
       edit:
         edit_user_profile: "Редагувати профіль користувача"
         select_locale: "Виберіть мову"

@@ -1,0 +1,24 @@
+h1= t('.quiz_stats')
+
+.span8
+  table.table.table-striped
+    thead
+      tr
+        th= t('.begin_test_time')
+        th= t('.end_test_time')
+        th= t('.spent_time')
+        th= t('.correct_answers')
+        th= t('.correct_answers_part')
+        th= t('.avg_time')
+        th
+    tbody
+      - @quizzes.each do  |quiz|
+        tr
+          td= quiz.created_at
+          td= quiz.finished_at
+          td= quiz.spent_time || non_breaking_space
+          td= quiz.correct_answers.count
+          td= quiz.correct_answers_part
+          td= quiz.avg_answer_time if quiz.closed?
+          td= link_to t('.more'), admin_user_quiz_path(@user, quiz), :class => 'btn btn-link'
+

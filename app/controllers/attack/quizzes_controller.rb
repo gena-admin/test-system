@@ -1,4 +1,4 @@
-class Attack::QuizzesController < ApplicationController
+class Attack::QuizzesController < Attack::ApplicationController
   skip_before_filter :close_quiz!, :only => 'destroy'
 
   before_filter :find_quiz, :only => %w(show destroy)
@@ -19,6 +19,10 @@ class Attack::QuizzesController < ApplicationController
   def show
   end
 
+  def index
+    @quizzes = current_user.quizzes
+  end
+
   def destroy
     @quiz.close!
     session[:quiz_id] = nil
@@ -28,6 +32,6 @@ class Attack::QuizzesController < ApplicationController
   private
 
   def find_quiz
-    @quiz = Quiz.find params[:id]
+    @quiz = current_user.quizzes.find params[:id]
   end
 end

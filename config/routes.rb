@@ -5,7 +5,7 @@ TestSystem::Application.routes.draw do
   root :to => 'home#index'
 
   namespace :attack do
-    resources :quizzes, :only => 'show' do
+    resources :quizzes, :only => %w(index show) do
       collection do
         get '/start' => 'quizzes#create', :as => 'start'
       end
@@ -18,7 +18,9 @@ TestSystem::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, :only => %w(index edit update destroy)
+    resources :users, :only => %w(index edit update destroy)  do
+      resources :quizzes, :only => %w(index show)
+    end
   end
 
 

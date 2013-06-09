@@ -8,6 +8,7 @@ ru:
         birthday: "Дата рождения"
         locale:   "Локаль"
         is_admin: "Админ?"
+        completed_test: "Пройдено тестов"
       edit:
         edit_user_profile: "Редактировать профиль пользователя"
         select_locale: "Выберите язык"

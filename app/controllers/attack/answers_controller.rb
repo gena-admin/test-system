@@ -1,4 +1,4 @@
-class Attack::AnswersController < ApplicationController
+class Attack::AnswersController < Attack::ApplicationController
   skip_before_filter :close_answer!, :only => %w(edit update)
   skip_before_filter :close_quiz!
 

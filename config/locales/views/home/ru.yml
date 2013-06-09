@@ -2,3 +2,4 @@ ru:
   home:
     index:
       start_attack_test: 'Начать тестирование атаки'
+      results_tests: "Результати предыдущего тестирования"

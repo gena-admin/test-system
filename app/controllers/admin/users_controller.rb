@@ -1,5 +1,4 @@
-class Admin::UsersController < ApplicationController
-  before_filter :authorize_admin!
+class Admin::UsersController < Admin::ApplicationController
   before_filter :find_user, :only => [:edit, :update, :destroy]
 
   def index

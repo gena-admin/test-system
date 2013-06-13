@@ -1,4 +1,5 @@
 require 'importer/attack'
+require 'importer/protection'
 
 namespace :questions do
   namespace :attack do
@@ -26,6 +27,36 @@ namespace :questions do
       }
       puts ''
       puts "Finished attack questions importing. Imported #{count} questions"
+      puts '=' * 150
+    end
+  end
+  namespace :protection do
+    desc 'Destroy all protection questions with related answers'
+    task :clear => :environment do
+      ProtectionAnswer.delete_all
+      ProtectionQuestion.delete_all
+      ProtectionCorrectPosition.delete_all
+      ProtectionInitialPosition.delete_all
+    end
+
+    desc 'Import protection questions from questions/protection/ directory'
+    task :import => :environment do
+      puts '=' * 150
+      puts 'Started protection questions importing'
+      count = 0
+      Dir[File.join Rails.root, 'questions', 'protection', '*.xlsx'].each { |file_path|
+        begin
+          Importer::Protection.new(file_path).import!
+          count += 1
+          print '+'
+        rescue Exception => e
+          puts ''
+          puts file_path
+          puts e.message
+        end
+      }
+      puts ''
+      puts "Finished protection questions importing. Imported #{count} questions"
       puts '=' * 150
     end
   end

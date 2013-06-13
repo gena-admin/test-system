@@ -2,7 +2,8 @@ uk:
   admin:
     quizzes:
       index:
-        quiz_stats: "Статистика тестів"
+        quiz_stats_attack: "Статистика тестів Атака"
+        quiz_stats_protection: "Статистика тестів Захист"
         spent_time: "Витрачено часу"
         correct_answers: "Правильних відповідей"
         correct_answers_part: "% правильних відповідей"

@@ -1,7 +1,7 @@
 table.table.table-bordered.game-table
-  - protection_question_to_matrix(question).each do |row|
+  - protection_question_to_matrix(question).each_with_index do |row, dy|
     tr
-      - row.each_with_index do |position, j|
-        td class="#{'volley-net' if j == 6}" style=position_style(position)
+      - row.each_with_index do |position, dx|
+        td class="#{'volley-net' if dx == 6}" data-dx="#{dx - 6}" data-dy='#{dy + 1}'
           - if position
-            i.icon-user
+            i.icon-user style=position_style(position)

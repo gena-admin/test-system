@@ -2,7 +2,7 @@ ru:
   attack:
     answers:
       edit:
-        answer: "Ответ"
+        answer: "Ответить"
         finish_quiz: "Завершить тест"
         next_question: "Следующий вопрос"
 

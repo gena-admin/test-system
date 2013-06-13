@@ -2,7 +2,8 @@ ru:
   admin:
     quizzes:
       index:
-        quiz_stats: "Статистика тестов"
+        quiz_stats_attack: "Статистика тестов Атака"
+        quiz_stats_protection: "Статистика тестов Защита"
         spent_time: "Потраченое время"
         correct_answers: "Верных ответов"
         correct_answers_part: "% верных ответов"

@@ -2,4 +2,5 @@ en:
   home:
     index:
       start_attack_test: "Start Attack Test"
+      start_protection_test: "Start Defense Test"
       results_tests: "The results of preliminary tests"

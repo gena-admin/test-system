@@ -28,7 +28,13 @@ TestSystem::Application.routes.draw do
       resources :answers, :only => %w(new edit update)
     end
     resources :questions, :only => %w(index create show destroy)
-  end
+
+    resources :quizzes, :as => :protection_quizzes ,:only => %w(index show) do
+      resources :answers, :as => :protection_answers,  :only => %w(new edit update)
+    end
+
+    end
+
 
   namespace :admin do
     resources :users, :only => %w(index edit update destroy)  do

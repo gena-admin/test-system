@@ -6,7 +6,7 @@ function YouTube(player, options) {
 
     this.defaultOptions = {
         stopAfter: 3,
-        waitFor: 7.3,
+        waitFor: null || 0, //waiting forever
         onStop: null,
         onContinue: null
     };
@@ -72,7 +72,8 @@ function YouTube(player, options) {
 
         if (evt.data == YT.PlayerState.PAUSED && !this.wasStopped) {
             this.wasStopped = true;
-            setTimeout(this.startVideo.bind(this), this.options.waitFor * 1000);
+            if (this.options.waitFor && this.options.waitFor > 0)
+                setTimeout(this.startVideo.bind(this), this.options.waitFor * 1000);
         }
     };
 

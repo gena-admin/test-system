@@ -1,0 +1,24 @@
+h1
+  =t('.attack_question')
+  '
+  = link_to t('.delete_question'), protection_question_path(@protection_question), :method => 'delete', :class => 'btn btn-small btn-danger'
+.row
+  .span6
+    center
+      iframe allowfullscreen="" frameborder="0" width="480" height="272" src="http://www.youtube.com/embed/#{@protection_question.youtube_code}"
+  .span6
+    - User::LOCALES.each_with_index do |locale, index|
+
+      h4= @protection_question.title(locale)
+      span.label.label-warning = @protection_question.hint(locale)
+.row
+  center
+    .span6
+      h2= t('.initial_position')
+      == render :partial => 'schema', :locals => { :question => @protection_question.protection_initial_positions }
+  center
+    .span6
+      h2= t('.correct_position')
+      == render :partial => 'schema', :locals => { :question => @protection_question.protection_correct_positions }
+
+

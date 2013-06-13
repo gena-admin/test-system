@@ -1,0 +1,12 @@
+ru:
+  protection:
+    questions:
+      index:
+        xlsx_file: "XLSX Файл"
+        question: "Вопрос"
+        questions: "Вопросы"
+      show:
+        delete_question: "Удалить вопрос"
+        attack_question: "Вопросы по атаке"
+        initial_position: "Начальный вариант"
+        correct_position: "Правильный ответ"

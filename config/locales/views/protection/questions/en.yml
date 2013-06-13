@@ -1,0 +1,12 @@
+en:
+  protection:
+    questions:
+      index:
+        xlsx_file: "XLSX File"
+        question: "Question"
+        questions: "Questions"
+      show:
+        delete_question: "Delete Question"
+        attack_question: "Attack Question"
+        initial_position: "Initial position"
+        correct_position: "Correct answer"

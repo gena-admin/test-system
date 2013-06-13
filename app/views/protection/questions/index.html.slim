@@ -1,0 +1,22 @@
+h1 =t('.questions')
+.row
+  .span6= form_tag protection_questions_path, multipart: true, :class => 'form form-horizontal' do
+    .control-group
+      label.control-label =t('.xlsx_file')
+      .controls= file_field_tag :file, :accept => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    .form-actions
+      = submit_tag t('common.save'), :class => 'btn btn-primary'
+
+table.table.table-striped
+  thead
+    tr
+      th =t('.question')
+      th
+  tbody
+    - @protection_questions.each do |question|
+      tr
+        td= question
+        td
+          .btn-group
+            = link_to t('common.view'),   protection_question_path(question), :class => 'btn btn-primary'
+            = link_to t('common.delete'), protection_question_path(question), :method => 'delete', :class => 'btn btn-medium btn-danger'

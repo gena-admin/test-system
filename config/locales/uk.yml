@@ -5,6 +5,7 @@ uk:
   layout:
     home: "Головна"
     attack: "Атака"
+    protection: "Захист"
     users: "Користувачі"
     logged_in_as: "Ви увійшли як"
     log_out: "Вийти"

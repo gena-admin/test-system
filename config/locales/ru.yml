@@ -17,3 +17,4 @@ ru:
     email: "Електронная почта"
     password: "Пароль"
     password_confirm: "Подтверждения пароля"
+    are_you_sure?: 'Вы уверены?'

@@ -22,4 +22,4 @@ h1= t('.users')
           td
             .btn-group
               = link_to t('common.edit'), edit_admin_user_path(user), :class => 'btn btn-primary'
-              = link_to t('common.delete'), admin_user_path(user), :method => 'delete', :class => 'btn btn-medium btn-danger'
+              = link_to t('common.delete'), admin_user_path(user), :method => 'delete', :class => 'btn btn-medium btn-danger', :promt => t('common.are_you_sure?')

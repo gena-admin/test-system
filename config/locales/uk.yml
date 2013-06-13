@@ -17,3 +17,4 @@ uk:
     email: "Електронна пошта"
     password: "Пароль"
     password_confirm: "Підтвердження пароля"
+    are_you_sure?: 'Ви впевнені?'

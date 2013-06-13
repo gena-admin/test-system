@@ -10,5 +10,6 @@ uk:
         begin_test_time: "Початок тесту"
         end_test_time: "Закінчення тесту"
         more: "Детальніше..."
+        close: 'Завершити'
       show:
         quiz_stat_for: "Статистика теста для %{user}"

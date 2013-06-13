@@ -5,9 +5,14 @@ class Answer < ActiveRecord::Base
   belongs_to :quiz
   belongs_to :question
   belongs_to :choice
+
   scope :correct, joins(:choice).where(:choices => { :is_correct => true })
+  scope :opened, where(:answered_at => nil)
+
   validates :question, :presence => true
   validate :choice_relation, :if => :choice_id
+
+  after_create :init_started_at!, :unless => :started_at
 
   def answered?
     !!answered_at
@@ -22,7 +27,9 @@ class Answer < ActiveRecord::Base
   end
 
   def spent_time
-    answered_at - (started_at + TIME_FOR_PAGE_LOAD + question.sec)
+    if closed?
+      answered_at - (started_at + TIME_FOR_PAGE_LOAD + question.sec)
+    end
   end
 
   def close!
@@ -30,10 +37,19 @@ class Answer < ActiveRecord::Base
     save
   end
 
+  def closed?
+    !!self.answered_at
+  end
+
   private
 
   def choice_relation
     q = question.choices.find_by_id(choice_id)
     errors.add(:choice, 'invalid') if q.nil?
+  end
+
+  def init_started_at!
+    self.started_at = self.created_at
+    self.save
   end
 end

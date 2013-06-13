@@ -17,4 +17,4 @@ en:
     email: "Email Address"
     password: "Password"
     password_confirm: "Password confirmation"
-
+    are_you_sure?: 'Are you sure?'

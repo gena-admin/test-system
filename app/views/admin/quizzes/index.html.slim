@@ -1,24 +1,26 @@
-h1= t('.quiz_stats')
+h1
+  =' t('.quiz_stats')
+  small= @user
 
-.span8
-  table.table.table-striped
-    thead
+table.table.table-striped
+  thead
+    tr
+      th= t('.begin_test_time')
+      th= t('.end_test_time')
+      th= t('.spent_time')
+      th= t('.correct_answers')
+      th= t('.correct_answers_part')
+      th= t('.avg_time')
+      th
+  tbody
+    - @quizzes.each do  |quiz|
       tr
-        th= t('.begin_test_time')
-        th= t('.end_test_time')
-        th= t('.spent_time')
-        th= t('.correct_answers')
-        th= t('.correct_answers_part')
-        th= t('.avg_time')
-        th
-    tbody
-      - @quizzes.each do  |quiz|
-        tr
-          td= quiz.created_at
-          td= quiz.finished_at
-          td= quiz.spent_time || non_breaking_space
-          td= quiz.correct_answers.count
-          td= quiz.correct_answers_part
-          td= quiz.avg_answer_time if quiz.closed?
-          td= link_to t('.more'), admin_user_quiz_path(@user, quiz), :class => 'btn btn-link'
-
+        td= l(quiz.created_at, :format => :short)
+        td= l(quiz.finished_at, :format => :short) if quiz.finished_at
+        td= quiz.spent_time || non_breaking_space
+        td= quiz.correct_answers.count
+        td= quiz.correct_answers_part
+        td= quiz.avg_answer_time if quiz.closed?
+        td
+          =' link_to t('.more'), admin_user_quiz_path(@user, quiz), :class => 'btn btn-link'
+          = link_to t('.close'), admin_user_quiz_path(@user, quiz), :class => 'btn btn-small btn-warning', :method => 'delete' unless quiz.closed?

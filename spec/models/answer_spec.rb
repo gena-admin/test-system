@@ -13,6 +13,11 @@ describe Answer do
     }.to change{ Answer.count }.by 1
   end
 
+  it 'should create new answer with started_at initiated from created_at' do
+    answer = FactoryGirl.create(:answer)
+    answer.started_at.should == answer.created_at
+  end
+
   context 'validation' do
     context 'question' do
       it { FactoryGirl.build(:answer, :question => nil).should have(1).error_on(:question) }
@@ -45,6 +50,11 @@ describe Answer do
     it { FactoryGirl.build(:answer, :started_at => now, :answered_at => now + 8).spent_time.should == 2 }
   end
 
+  context '#closed?' do
+    it { FactoryGirl.build(:answer, :answered_at => nil).should_not be_closed }
+    it { FactoryGirl.build(:answer).should be_closed }
+  end
+
   context 'scopes' do
     context 'correct' do
       before :each do
@@ -55,6 +65,17 @@ describe Answer do
       end
 
       it { Answer.correct.should have(3).records }
+    end
+
+    context 'opened' do
+      before :each do
+        3.times {
+          FactoryGirl.create(:answer, :answered_at => nil)
+        }
+        FactoryGirl.create(:answer)
+      end
+
+      it { Answer.opened.should have(3).records }
     end
   end
 end

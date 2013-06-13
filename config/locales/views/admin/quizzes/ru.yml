@@ -10,6 +10,7 @@ ru:
         begin_test_time: "Начало теста"
         end_test_time: "Окончание теста"
         more: "Детальнее..."
+        close: 'Завершить'
       show:
         quiz_stat_for: "Ститистика теста для %{user}"
 

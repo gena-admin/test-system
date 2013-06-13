@@ -79,4 +79,20 @@ describe Quiz do
 
     it { quiz.avg_answer_time.should == 2 }
   end
+
+  context '#close!' do
+    let(:quiz) { FactoryGirl.create(:quiz) }
+
+    before :each do
+      FactoryGirl.create(:answer, :quiz => quiz)
+      FactoryGirl.create(:answer, :answered_at => nil, :quiz => quiz)
+      FactoryGirl.create(:answer, :quiz => quiz)
+      quiz.reload
+    end
+
+    it 'Should close each opened answer' do
+      Answer.any_instance.should_receive(:close!)
+      quiz.close!
+    end
+  end
 end

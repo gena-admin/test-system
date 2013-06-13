@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :answer do
     question
+    answered_at { DateTime.now }
   end
 
   factory :answer_with_choice, :parent => :answer do

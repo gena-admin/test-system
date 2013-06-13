@@ -12,6 +12,7 @@ class Quiz < ActiveRecord::Base
 
   def close!
     self.finished_at = Time.now
+    self.answers.opened.each { |a| a.close! }
     save
   end
 

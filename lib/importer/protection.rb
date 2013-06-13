@@ -23,20 +23,20 @@ module Importer
   private
 
     def import_video!
-      @protection_question.video_url = @spreadsheet.row(7)[0]
+      @protection_question.video_url = @spreadsheet.row(5)[0]
       @protection_question.sec = @spreadsheet.row(1)[0][/\d+/].to_i
     end
 
     def import_question!
-      @protection_question.title_uk = @spreadsheet.row(2)[0]
-      @protection_question.title_ru = @spreadsheet.row(2)[1]
-      @protection_question.title_en = @spreadsheet.row(2)[2]
+      @protection_question.title_uk = @spreadsheet.row(2)[0] << ' ' << @spreadsheet.row(3)[0]
+      @protection_question.title_ru = @spreadsheet.row(2)[1] << ' ' << @spreadsheet.row(3)[1]
+      @protection_question.title_en = @spreadsheet.row(2)[2] << ' ' << @spreadsheet.row(3)[2]
     end
 
     def import_hint!
-      @protection_question.hint_uk = @spreadsheet.row(6)[0]
-      @protection_question.hint_ru = @spreadsheet.row(6)[1]
-      @protection_question.hint_en = @spreadsheet.row(6)[2]
+      @protection_question.hint_uk = @spreadsheet.row(4)[0]
+      @protection_question.hint_ru = @spreadsheet.row(4)[1]
+      @protection_question.hint_en = @spreadsheet.row(4)[2]
     end
 
     def import_schema!

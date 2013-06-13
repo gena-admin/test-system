@@ -17,7 +17,7 @@ TestSystem::Application.routes.draw do
     resources :questions, :only => %w(index create show destroy)
   end
 
-  namespace :protection do
+  namespace :protection, :path => 'defence' do
     resources :quizzes, :only => %w(index show) do
       collection do
         get '/start' => 'quizzes#create', :as => 'start'

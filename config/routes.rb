@@ -17,6 +17,19 @@ TestSystem::Application.routes.draw do
     resources :questions, :only => %w(index create show destroy)
   end
 
+  namespace :protection, :path => 'defence' do
+    resources :quizzes, :only => %w(index show) do
+      collection do
+        get '/start' => 'quizzes#create', :as => 'start'
+      end
+      member do
+        get '/finish' => 'quizzes#destroy', :as => 'finish'
+      end
+      resources :answers, :only => %w(new edit update)
+    end
+    resources :questions, :only => %w(index create show destroy)
+  end
+
   namespace :admin do
     resources :users, :only => %w(index edit update destroy)  do
       resources :quizzes, :only => %w(index show destroy)

@@ -5,6 +5,7 @@ ru:
   layout:
     home: "Главная"
     attack: "Атака"
+    protection: "Защита"
     users: "Пользователи"
     logged_in_as: "Вы вошли как"
     log_out: "Выйти"

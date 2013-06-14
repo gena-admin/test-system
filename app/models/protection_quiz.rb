@@ -24,19 +24,19 @@ class ProtectionQuiz < ActiveRecord::Base
   end
 
   def next_answer!
-    protection_answers_ids = protection_answers.map(&:protection_answers_id)
+    protection_question_ids = protection_answers.map(&:protection_question_id)
     result = self.protection_answers.build
-    result.protection_question = random_question protection_answers_ids
+    result.protection_question = random_question protection_question_ids
     result.save!
     result
   end
 
   def correct_answers
-    @correct_protection_answers ||= protection_answers.correct
+    @correct_protection_answers ||= protection_answers.select { |a| a.correct? }
   end
 
   def correct_answers_part
-    correct_protection_answers.count * 100 / QUESTIONS_COUNT
+    correct_answers.count * 100 / QUESTIONS_COUNT
   end
 
   def avg_answer_time

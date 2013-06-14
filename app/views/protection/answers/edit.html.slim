@@ -1,0 +1,24 @@
+.row
+  .span6
+    center
+      = progress_bar_protection @protection_quiz
+      .player data-code=@protection_answer.protection_question.youtube_code
+      == render :partial => 'protection/questions/schema', :locals => { :question => @protection_answer.protection_question.protection_initial_positions   }
+  .span6
+    h4 = @protection_answer.protection_question
+    = form_for [:protection, @protection_quiz, @protection_answer], :remote => true do |f|
+      = hidden_field_tag :protection_answered_positions, initial_answer(@protection_answer.protection_question)
+      span.label.label-warning = @protection_answer.protection_question.hint
+      .form-actions
+        =' f.submit t('attack.answers.edit.answer'), :class => 'btn btn-primary'
+        - if @protection_quiz.full?
+          = link_to t('attack.answers.edit.finish_quiz'), finish_protection_quiz_path(@protection_quiz)
+        - else
+          = link_to t('attack.answers.edit.next_question'), new_protection_quiz_answer_path(@protection_quiz)
+javascript:
+  $(function() {
+    dragAndDrop();
+    $('.player').youtube({
+      stopAfter: #{@protection_answer.protection_question.sec}
+    });
+  });

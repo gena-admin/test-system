@@ -5,6 +5,7 @@ class Admin::QuizzesController < Admin::ApplicationController
 
   def index
     @quizzes = @user.quizzes
+    @protection_quizzes = @user.protection_quizzes
   end
 
   def show

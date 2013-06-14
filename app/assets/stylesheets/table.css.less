@@ -1,4 +1,4 @@
-@cell-size: 23px;
+@cell-size: 39px;
 .game-table {
   table-layout: fixed;
   width: auto;
@@ -6,8 +6,15 @@
   tr td {
     height: @cell-size;
     width: @cell-size;
-    line-height: @cell-size;
+    line-height: @cell-size - 1;
     text-align: center;
+    padding:  0px;
+    i.icon-user {
+      padding:  12px 14px;
+      &.ui-draggable {
+        cursor: pointer;
+      }
+    }
   }
 
   .volley-net {

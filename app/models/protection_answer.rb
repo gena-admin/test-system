@@ -8,7 +8,10 @@ class ProtectionAnswer < ActiveRecord::Base
   belongs_to :protection_quiz
   belongs_to :protection_question
   has_many :protection_answered_positions, :dependent => :destroy
+
   #scope :correct, joins(:choice).where(:choices => { :is_correct => true })
+  scope :opened, where(:answered_at => nil)
+
   validates :protection_question, :presence => true
   #validate :choice_relation, :if => :choice_id
 
@@ -37,7 +40,9 @@ class ProtectionAnswer < ActiveRecord::Base
   end
 
   def spent_time
-    answered_at - (started_at + TIME_FOR_PAGE_LOAD + protection_question.sec)
+    if closed?
+      answered_at - (started_at + TIME_FOR_PAGE_LOAD + protection_question.sec)
+    end
   end
 
   def close!

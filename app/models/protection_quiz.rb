@@ -12,6 +12,7 @@ class ProtectionQuiz < ActiveRecord::Base
 
   def close!
     self.finished_at = Time.now
+    self.protection_answers.opened.each { |a| a.close! }
     save
   end
 

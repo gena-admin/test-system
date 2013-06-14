@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def set_locale
-    I18n.locale = current_user.locale if current_user && current_user.locale
+    I18n.locale = current_user.locale if current_user
   end
 
   def authorize_admin!

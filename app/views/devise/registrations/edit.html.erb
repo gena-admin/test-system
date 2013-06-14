@@ -18,7 +18,7 @@
   <i><%= t('devise.registrations.edit.get_password') %></i><br />
   <%= f.password_field :current_password, :class =>'input-block-level', :placeholder=>t('common.password_confirm') %>
 
-  <%= f.select :locale, User::LOCALES, :prompt => t('devise.registrations.edit.email')  %>   <br>
+  <%= f.select :locale, User::LOCALES  %>   <br>
 
 
       <%= f.submit t('common.update'),:class=>"btn btn-large btn-primary" %>

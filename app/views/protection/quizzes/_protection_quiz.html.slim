@@ -1,0 +1,29 @@
+h1= t('attack.quizzes.show.quiz_stat')
+.row
+  .span6
+    dl.dl-horizontal
+      dt= t('attack.quizzes.quiz.spent_time')
+      dd= @protection_quiz.spent_time || non_breaking_space
+      dt= t('attack.quizzes.quiz.correct_answer')
+      dd= @protection_quiz.correct_answers.count
+      dt= t('attack.quizzes.quiz.correct_answers_part')
+      dd #{@protection_quiz.correct_answers_part}%
+      dt= t('attack.quizzes.quiz.avg_time')
+      dd= @protection_quiz.avg_answer_time if @protection_quiz.closed?
+- @protection_quiz.protection_answers.each do |protection_answer|
+  h4= protection_answer.protection_question.title
+  .row
+    .span6
+      center
+        h6= t('attack.quizzes.show.user_answer')
+    .span6
+      center
+        h6= t('attack.quizzes.show.correct_answer')
+  .row
+    .span6
+      center
+        == render :partial => 'protection/questions/schema', :locals => { :question => protection_answer.protection_answered_positions}
+    .span6
+      center
+        == render :partial => 'protection/questions/schema', :locals => { :question => protection_answer.protection_question.protection_correct_positions}
+  hr

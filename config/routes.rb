@@ -39,6 +39,7 @@ TestSystem::Application.routes.draw do
   namespace :admin do
     resources :users, :only => %w(index edit update destroy)  do
       resources :quizzes, :only => %w(index show destroy)
+      resources :protection_quizzes, :only => %w(index show destroy)
     end
   end
 

@@ -3,6 +3,8 @@ ru:
     quizzes:
       show:
         quiz_stat: "Статистика теста"
+        correct_answer: "Правильный ответ"
+        user_answer: "Ответ пользователя"
       quiz:
         spent_time: "Потраченое время"
         correct_answer: "Верных ответов"

@@ -3,6 +3,8 @@ en:
     quizzes:
       show:
         quiz_stat: "Quiz statistic"
+        correct_answer: "Correct answer"
+        user_answer: "User answer"
       quiz:
         spent_time: "Spent Time"
         correct_answer: "Correct Answers"

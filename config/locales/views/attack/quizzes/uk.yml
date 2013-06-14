@@ -3,6 +3,8 @@ uk:
     quizzes:
       show:
         quiz_stat: "Статистика теста"
+        correct_answer: "Правильна відповідь"
+        user_answer: "Відповідь користувача"
       quiz:
         spent_time: "Витрачено часу"
         correct_answer: "Правильних відповідей"

@@ -67,7 +67,7 @@ describe Answer do
       it { Answer.correct.should have(3).records }
     end
 
-    context 'opened' do
+    context 'opened/closed' do
       before :each do
         3.times {
           FactoryGirl.create(:answer, :answered_at => nil)
@@ -75,7 +75,9 @@ describe Answer do
         FactoryGirl.create(:answer)
       end
 
+      it { Answer.should have(4).records }
       it { Answer.opened.should have(3).records }
+      it { Answer.closed.should have(1).records }
     end
   end
 end

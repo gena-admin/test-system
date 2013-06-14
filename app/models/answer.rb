@@ -8,6 +8,7 @@ class Answer < ActiveRecord::Base
 
   scope :correct, joins(:choice).where(:choices => { :is_correct => true })
   scope :opened, where(:answered_at => nil)
+  scope :closed, where('answered_at IS NOT NULL')
 
   validates :question, :presence => true
   validate :choice_relation, :if => :choice_id

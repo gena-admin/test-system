@@ -42,8 +42,8 @@ class ProtectionQuiz < ActiveRecord::Base
 
   def avg_answer_time
     return @avg_answer_time unless @avg_answer_time.nil?
-    spent_times = protection_answers.map &:spent_time
-    spent_times.inject {|sum, spent_time|  sum += spent_time } / spent_times.count
+    spent_times = protection_answers.closed.map &:spent_time
+    @avg_answer_time = spent_times.inject {|sum, spent_time|  sum += spent_time } / spent_times.count
   end
 
   private

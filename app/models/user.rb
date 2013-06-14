@@ -24,4 +24,9 @@ class User < ActiveRecord::Base
   def admin?
     ADMINS.include?(email) || is_admin
   end
+
+  def all_tests_count
+    quizzes.count+protection_quizzes.count
+  end
+
 end

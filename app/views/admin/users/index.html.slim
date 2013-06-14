@@ -18,7 +18,7 @@ h1= t('.users')
           td= user.birthday
           td= user.locale
           td= user.is_admin
-          td= link_to user.quizzes.count, admin_user_quizzes_path(user)
+          td= link_to user.all_tests_count, admin_user_quizzes_path(user)
           td
             .btn-group
               = link_to t('common.edit'), edit_admin_user_path(user), :class => 'btn btn-primary'

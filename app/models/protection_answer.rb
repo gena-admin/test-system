@@ -50,6 +50,10 @@ class ProtectionAnswer < ActiveRecord::Base
     save
   end
 
+  def closed?
+    !!self.answered_at
+  end
+
   #private
   #
   #def choice_relation

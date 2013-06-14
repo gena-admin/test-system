@@ -11,7 +11,7 @@ class Admin::ProtectionQuizzesController < Admin::ApplicationController
   end
 
   def destroy
-    @protection_quizzes.close!
+    @protection_quiz.close!
     redirect_to admin_user_protection_quizzes_path(@user)
   end
 

@@ -22,6 +22,7 @@ class Attack::QuizzesController < Attack::ApplicationController
 
   def index
     @quizzes = current_user.quizzes
+    @protection_quizzes = current_user.protection_quizzes
   end
 
   def destroy

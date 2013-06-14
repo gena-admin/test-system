@@ -18,7 +18,10 @@
 javascript:
   $(function() {
     dragAndDrop();
-    $('.player').youtube({
+    var player = $('.player').youtube({
       stopAfter: #{@protection_answer.protection_question.sec}
+    });
+    $('form input[type=submit]').click(function() {
+      player.startVideo();
     });
   });

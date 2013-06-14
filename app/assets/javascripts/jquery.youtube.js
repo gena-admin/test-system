@@ -98,8 +98,9 @@ function YouTube(player, options) {
 }
 
 $.fn.youtube = function(method_or_options) {
-    if (this.data('youtube'))
-        this.data('youtube')[method_or_options]();
-    else
-        this.data('youtube', new YouTube(this, method_or_options));
+//    if (this.data('youtube'))
+//        this.data('youtube')[method_or_options]();
+//    else
+//        this.data('youtube', new YouTube(this, method_or_options));
+    return new YouTube(this, method_or_options);
 };

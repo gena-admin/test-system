@@ -1,0 +1,23 @@
+.row
+  .span6
+    dl.dl-horizontal
+      dt= t('attack.quizzes.quiz.spent_time')
+      dd= quiz.spent_time || non_breaking_space
+      dt= t('attack.quizzes.quiz.correct_answer')
+      dd= quiz.correct_answers.count
+      dt= t('attack.quizzes.quiz.correct_answers_part')
+      dd #{quiz.correct_answers_part}%
+      dt= t('attack.quizzes.quiz.avg_time')
+      dd= quiz.avg_answer_time if quiz.closed?
+/.questions
+/  - quiz.protection_answers.each do |answer|
+/    h6= answer.question
+/    - answer.question.choices.each do |choice|
+/      - if answer.choice == choice && answer.correct?
+/        p.text-success= choice
+/      - elsif answer.choice == choice
+/        p.text-error= choice
+/      - elsif choice.is_correct
+/        p.text-success= choice
+/      - else
+/        p= choice

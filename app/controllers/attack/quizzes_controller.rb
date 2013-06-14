@@ -11,6 +11,7 @@ class Attack::QuizzesController < Attack::ApplicationController
       @quiz.save
       answer = @quiz.next_answer!
       session[:quiz_id] = @quiz.id
+      session[:quiz_type] = :protection
       session[:answer_id] = answer.id
       redirect_to edit_attack_quiz_answer_path(@quiz, answer)
     end
@@ -26,6 +27,7 @@ class Attack::QuizzesController < Attack::ApplicationController
   def destroy
     @quiz.close!
     session[:quiz_id] = nil
+    session[:quiz_type] = nil
     redirect_to attack_quiz_path(@quiz)
   end
 

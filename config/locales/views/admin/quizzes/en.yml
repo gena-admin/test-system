@@ -2,7 +2,8 @@ en:
   admin:
     quizzes:
       index:
-        quiz_stats: "Quiz statistics"
+        quiz_stats_attack: "Quiz statistics Attack"
+        quiz_stats_protection: "Quiz statistics Defense"
         spent_time: "Spent Time"
         correct_answers: "Correct Answers"
         correct_answers_part: "Correct Answers Part"

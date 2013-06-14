@@ -2,7 +2,7 @@ uk:
   attack:
     answers:
       edit:
-        answer: "Відповідь"
+        answer: "Відповісти"
         finish_quiz: "Закінчити тест"
         next_question: "Наступне питання"
 

@@ -1,0 +1,38 @@
+.row
+  .span6
+    center
+      .player data-code=@question.youtube_code
+      table.table.table-bordered.game-table.game-learn
+        - correct_positions = positions_to_matrix @question.protection_correct_positions
+        - positions_to_matrix(@question.protection_initial_positions).each_with_index do |row, dy|
+          tr
+            - row.each_with_index do |position, dx|
+              td class="#{position_class dx, correct_positions[dy][dx]}" data-dx="#{dx - 6}" data-dy='#{dy + 1}'
+                - if position
+                  i.icon-user style=position_style(position)
+  .span6
+    h4 = @question
+    span.label.label-warning = @question.hint
+    .form-actions
+      = link_to t('attack.answers.edit.next_question'), new_protection_learn_url, :class => 'btn btn-primary'
+javascript:
+  $(function() {
+    var player = $('.player').youtube({
+      stopAfter: #{@question.sec}
+    });
+    dragAndDrop({onDrop: function() {
+      $('td.incorrect').droppable("disable");
+      var correct_icons = 0;
+      var correct_positions = 0;
+      $('.game-table td').each(function() {
+        var $this = $(this);
+        if (!$this.hasClass('incorrect')) {
+          correct_positions++;
+          if ($this.find('i').length != 0)
+            correct_icons++;
+        }
+      });
+      if (correct_icons == correct_positions)
+        player.startVideo();
+    }});
+  });

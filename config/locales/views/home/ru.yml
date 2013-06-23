@@ -3,4 +3,5 @@ ru:
     index:
       start_attack_test: "Начать тестирование атаки"
       start_protection_test: "Начать тестирование защиты"
-      results_tests: "Результати предыдущего тестирования"
+      results_tests: "Результаты предыдущих тестирований"
+      learn_protection: "Учить защиту"

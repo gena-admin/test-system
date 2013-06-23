@@ -32,6 +32,7 @@ TestSystem::Application.routes.draw do
     resources :quizzes, :as => :protection_quizzes ,:only => %w(index show) do
       resources :answers, :as => :protection_answers,  :only => %w(new edit update)
     end
+    resources :learns, :only => 'new', :path => 'learn'
 
     end
 

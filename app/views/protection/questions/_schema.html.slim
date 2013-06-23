@@ -1,5 +1,5 @@
 table.table.table-bordered.game-table
-  - protection_question_to_matrix(question).each_with_index do |row, dy|
+  - positions_to_matrix(question).each_with_index do |row, dy|
     tr
       - row.each_with_index do |position, dx|
         td class="#{'volley-net' if dx == 6}" data-dx="#{dx - 6}" data-dy='#{dy + 1}'

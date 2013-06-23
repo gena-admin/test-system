@@ -1,6 +1,6 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-var dragAndDrop = function() {
+var dragAndDrop = function(options) {
     var hidden_field = $('#protection_answered_positions');
     $('i').draggable(
         { containment: "table", revert: 'invalid' }
@@ -20,9 +20,12 @@ var dragAndDrop = function() {
                 result.push($item.data('dx') + ',' + $item.data('dy'));
             });
             hidden_field.val(result.join('|'));
+            if ($.isFunction(options['onDrop']))
+                options['onDrop']();
         }
     });
 
     $('td').not('td:empty').droppable("disable");
+    $('td.incorrect').droppable("disable");
 }
 

@@ -1,4 +1,6 @@
 .row
-  .span4= link_to t('.start_attack_test'), start_attack_quizzes_path, :class => 'btn btn-large btn-primary'
-  .span4= link_to t('.start_protection_test'), start_protection_quizzes_path, :class => 'btn btn-large btn-primary'
+  .span8.btn-group
+    = link_to t('.start_attack_test'), start_attack_quizzes_path, :class => 'btn btn-large btn-success'
+    = link_to t('.start_protection_test'), start_protection_quizzes_path, :class => 'btn btn-large btn-danger'
+    = link_to t('.learn_protection'), new_protection_learn_url, :class => 'btn btn-large btn-warning'
   .span4= link_to t('.results_tests'), attack_quizzes_path, :class => 'btn btn-large btn-primary'
